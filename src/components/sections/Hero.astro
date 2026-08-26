@@ -1,0 +1,68 @@
+---
+import HeroScene from '../three/HeroScene.vue';
+import Terminal from '../ui/Terminal.vue';
+import { PERSONAL_INFO, HERO_BADGES } from '../../data/constants';
+---
+
+<section id="hero" class="min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-4 pt-24 pb-12">
+  <!-- 3D Particle Canvas Island -->
+  <HeroScene client:only="vue" />
+
+  <!-- Ambient Glow Effects -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-primary/15 blur-[140px] rounded-full pointer-events-none animate-[float_6s_ease-in-out_infinite]"></div>
+  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/10 blur-[120px] rounded-full pointer-events-none animate-[float_8s_ease-in-out_infinite_reverse]"></div>
+
+  <div class="max-w-4xl w-full text-center relative z-10 space-y-8">
+    <div class="space-y-4">
+      <h2 class="text-primary font-pixel text-2xl md:text-3xl tracking-widest animate-slide-up">
+        &lt; PORTFOLIO /&gt;
+      </h2>
+
+      <h1 class="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight font-pixel">
+        FRANZ KENNEDY <br />
+        <span class="text-secondary dark:text-accent animate-pulse">AGUILAR CERNA</span>
+      </h1>
+
+      <p class="text-xl sm:text-2xl font-pixel text-gray-600 dark:text-gray-300 max-w-2xl mx-auto tracking-wider">
+        {PERSONAL_INFO.role}
+      </p>
+
+      <div class="flex flex-wrap gap-2 md:gap-3 justify-center text-sm md:text-lg font-pixel text-gray-600 dark:text-gray-400 pt-2">
+        {HERO_BADGES.map((badge) => (
+          <span class="px-2 py-0.5 border border-primary/30 bg-white/40 dark:bg-black/40">[ {badge} ]</span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-wrap gap-4 justify-center pt-2">
+      <a
+        href={PERSONAL_INFO.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="pixel-btn px-8 py-3 bg-white dark:bg-black text-black dark:text-primary font-pixel text-xl hover:bg-gray-100 dark:hover:bg-gray-900"
+      >
+        GITHUB ↗
+      </a>
+      <a
+        href={PERSONAL_INFO.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="pixel-btn px-8 py-3 bg-primary text-white font-pixel text-xl hover:bg-primary/90"
+      >
+        LINKEDIN ↗
+      </a>
+      <a
+        href="#experience"
+        class="pixel-btn px-8 py-3 bg-secondary text-white font-pixel text-xl hover:bg-secondary/90"
+      >
+        EXPERIENCIA ↓
+      </a>
+    </div>
+
+    <!-- Interactive Terminal Island -->
+    <div class="pt-6">
+      <Terminal client:visible />
+    </div>
+  </div>
+</section>

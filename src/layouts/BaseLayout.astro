@@ -1,0 +1,81 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import Navbar from '../components/layout/Navbar.vue';
+import Footer from '../components/layout/Footer.astro';
+import CommandPalette from '../components/layout/CommandPalette.vue';
+import { PERSONAL_INFO } from '../data/constants';
+import '../styles/base.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${PERSONAL_INFO.name} | Portafolio Web`,
+  description = `${PERSONAL_INFO.role} - Portafolio profesional con proyectos, experiencia laboral en Flutter, Vue 3, Laravel y arquitectura de software.`
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={PERSONAL_INFO.name} />
+    <meta name="keywords" content="Franz Aguilar, Desarrollador Full Stack, Software Engineer, Vue 3, Astro, Laravel, Flutter, Three.js, Portafolio" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={PERSONAL_INFO.profileImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={PERSONAL_INFO.profileImage} />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+
+    <!-- View Transitions -->
+    <ClientRouter />
+
+    <!-- Theme Inline Script to avoid FOUC -->
+    <script is:inline>
+      const getInitialTheme = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+      const theme = getInitialTheme();
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+
+  <body class="min-h-screen selection:bg-primary/30 selection:text-white flex flex-col justify-between">
+    <Navbar client:load />
+    <CommandPalette client:load />
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

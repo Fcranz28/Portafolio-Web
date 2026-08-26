@@ -1,0 +1,35 @@
+{
+  "name": "portafolio-web",
+  "type": "module",
+  "version": "2.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "server": "node api/index.js"
+  },
+  "dependencies": {
+    "@astrojs/vue": "^5.0.1",
+    "@nanostores/vue": "^0.10.0",
+    "@tresjs/cientos": "^4.0.3",
+    "@tresjs/core": "^4.3.4",
+    "@vueuse/core": "^12.5.0",
+    "animejs": "^3.2.2",
+    "astro": "^5.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "lucide-vue-next": "^0.475.0",
+    "nanostores": "^0.11.3",
+    "three": "^0.173.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.8",
+    "@types/three": "^0.173.0",
+    "tailwindcss": "^4.0.8",
+    "typescript": "^5.7.3"
+  }
+}
