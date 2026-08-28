@@ -3,6 +3,9 @@ import { ClientRouter } from 'astro:transitions';
 import Navbar from '../components/layout/Navbar.vue';
 import Footer from '../components/layout/Footer.astro';
 import CommandPalette from '../components/layout/CommandPalette.vue';
+import ThreeBackground from '../components/three/ThreeBackground.vue';
+import ScrollProgressHUD from '../components/ui/ScrollProgressHUD.vue';
+import ScrollObserver from '../components/ui/ScrollObserver.vue';
 import { PERSONAL_INFO } from '../data/constants';
 import '../styles/base.css';
 
@@ -68,11 +71,20 @@ const {
     </script>
   </head>
 
-  <body class="min-h-screen selection:bg-primary/30 selection:text-white flex flex-col justify-between">
+  <body class="min-h-screen selection:bg-primary/30 selection:text-white flex flex-col justify-between relative">
+    <!-- Global 3D Interactive Background Scene -->
+    <ThreeBackground client:only="vue" />
+
+    <!-- HorizonX Premium Scroll Progress & Section HUD -->
+    <ScrollProgressHUD client:load />
+
+    <!-- Scroll-Driven Reveal & Card Spotlight Controller -->
+    <ScrollObserver client:idle />
+
     <Navbar client:load />
     <CommandPalette client:load />
 
-    <main class="flex-grow">
+    <main class="flex-grow relative z-10">
       <slot />
     </main>
 

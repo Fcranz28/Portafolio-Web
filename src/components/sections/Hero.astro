@@ -1,13 +1,9 @@
 ---
-import HeroScene from '../three/HeroScene.vue';
 import Terminal from '../ui/Terminal.vue';
 import { PERSONAL_INFO, HERO_BADGES } from '../../data/constants';
 ---
 
 <section id="hero" class="min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-4 pt-24 pb-12">
-  <!-- 3D Particle Canvas Island -->
-  <HeroScene client:only="vue" />
-
   <!-- Ambient Glow Effects -->
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-primary/15 blur-[140px] rounded-full pointer-events-none animate-[float_6s_ease-in-out_infinite]"></div>
   <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/10 blur-[120px] rounded-full pointer-events-none animate-[float_8s_ease-in-out_infinite_reverse]"></div>
