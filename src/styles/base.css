@@ -64,3 +64,98 @@ body {
 html {
    scroll-behavior: smooth;
 }
+
+/* Keep the pixel display voice; give long-form content a readable rhythm. */
+:root {
+   --color-primary: #7040cc;
+   --color-secondary: #b92b70;
+   --color-accent: #235db6;
+   --text-muted: #5b5564;
+   --surface-line: #d9cfe5;
+}
+.dark {
+   --color-primary: #b79aff;
+   --color-secondary: #f59bc7;
+   --color-accent: #99bfff;
+   --text-muted: #bab3cc;
+   --surface-line: #433452;
+}
+body { font-family: 'DM Sans', sans-serif; }
+main section { scroll-margin-top: 6rem; }
+main section p:not(#hero p), #about .space-y-3 span, #about .flex.flex-wrap span {
+   font-family: 'DM Sans', sans-serif;
+   font-size: 1rem;
+   line-height: 1.75;
+}
+h1, h2, h3 { text-wrap: balance; }
+#hero h1 { line-height: .95; }
+#hero > div:first-child, #hero > div:nth-child(2) { opacity: .35; }
+#hero .pixel-btn { min-height: 48px; }
+#hero .pixel-btn.bg-primary { background: var(--color-primary); color: #fff; }
+.dark #hero .pixel-btn.bg-primary { color: #180c27; }
+#hero .pixel-btn.bg-secondary { background: var(--color-secondary); color: #fff; }
+.dark #hero .pixel-btn.bg-secondary { color: #180c27; }
+a, button, input { -webkit-tap-highlight-color: transparent; }
+a { text-underline-offset: .25em; }
+:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 5px; }
+::selection { background: var(--color-primary); color: var(--bg-color); }
+* { scrollbar-color: var(--color-primary) var(--bg-color); scrollbar-width: thin; }
+.skip-link { position: fixed; top: 1rem; left: 1rem; z-index: 200; padding: .8rem 1.2rem; background: var(--bg-color); transform: translateY(-200%); }
+.skip-link:focus { transform: none; }
+.scroll-reveal-item { opacity: 1; transform: none; }
+.pixel-card, .dark .pixel-card { box-shadow: 4px 6px 0 var(--shadow-color); }
+.pixel-card:hover, .dark .pixel-card:hover { transform: translateY(-2px); box-shadow: 4px 8px 0 var(--shadow-color); }
+.pixel-card::before { display: none; }
+.experience-section { padding: 6rem 1.5rem; }
+.experience-container { max-width: 68rem; margin: auto; }
+.experience-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-bottom: 3.5rem; }
+.experience-heading h2 { font-family: var(--font-pixel); font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; margin-bottom: 1rem; }
+.experience-heading h2 span { color: var(--color-primary); }
+.experience-heading p { color: var(--text-muted); max-width: 44ch; }
+.experience-actions { display: flex; flex-wrap: wrap; gap: .5rem 1rem; }
+.experience-actions button { padding: .6rem 0; color: var(--text-muted); font-size: .85rem; text-decoration: underline; text-underline-offset: .3em; cursor: pointer; min-height: 44px; }
+.experience-actions button:hover { color: var(--color-primary); }
+.career-timeline { list-style: none; padding: 0; }
+.career-entry { display: grid; grid-template-columns: 12rem 1fr; gap: 2.5rem; }
+.career-period { padding-top: .2rem; display: flex; flex-direction: column; align-items: flex-start; gap: .65rem; color: var(--text-muted); font-size: .85rem; }
+.career-period strong { font-family: var(--font-pixel); font-weight: 400; font-size: 2rem; color: var(--text-main); font-variant-numeric: tabular-nums; }
+.current-role { padding: .25rem .6rem; background: var(--color-primary); color: var(--bg-color); font-size: .75rem; }
+.career-content { position: relative; padding: 0 0 2.5rem 2.5rem; border-left: 1px solid var(--surface-line); }
+.career-content::before { content: ''; position: absolute; left: -5px; top: .4rem; width: 9px; height: 9px; background: var(--color-primary); }
+.career-entry:not(:last-child) .career-content { margin-bottom: 2.5rem; border-bottom: 1px solid var(--surface-line); }
+.career-meta { color: var(--text-muted); font-size: .8rem; margin-bottom: .7rem; }
+.career-content h3 { font-family: var(--font-pixel); font-size: clamp(1.9rem, 3vw, 2.7rem); line-height: 1.1; }
+.career-content .career-company { color: var(--color-primary); font-weight: 600; margin-top: .35rem; }
+.career-summary { color: var(--text-muted); margin: 1.25rem 0; max-width: 68ch; }
+.career-skills { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; }
+.career-skills li { padding: .3rem .65rem; border: 1px solid var(--surface-line); font-size: .8rem; }
+.career-toggle { display: inline-flex; align-items: center; gap: .8rem; color: var(--color-primary); margin-top: 1rem; padding: .6rem 0; font-size: .85rem; min-height: 44px; cursor: pointer; }
+.career-toggle:hover { text-decoration: underline; text-underline-offset: .3em; }
+.career-toggle svg { transition: transform .2s ease; }
+.career-toggle svg.expanded { transform: rotate(180deg); }
+.career-details { padding-top: 1.5rem; display: grid; gap: 1.5rem; }
+.career-details h4 { font-weight: 600; margin-bottom: .3rem; }
+.career-details p { color: var(--text-muted); max-width: 68ch; }
+@media (max-width: 767px) {
+   .experience-section { padding: 4rem 1.25rem; }
+   .experience-heading { flex-direction: column; align-items: flex-start; gap: 1rem; margin-bottom: 2.5rem; }
+   .career-entry { grid-template-columns: 1fr; gap: 1rem; }
+   .career-period { flex-direction: row; align-items: center; flex-wrap: wrap; padding-left: 1.25rem; }
+   .career-period strong { font-size: 1.4rem; }
+   .career-content { padding-left: 1.25rem; padding-bottom: 1.5rem; }
+   #hero { padding-top: 7rem; }
+   #hero h1 { font-size: clamp(2.7rem, 11vw, 4.5rem); }
+   #hero .pixel-btn { padding: .7rem 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+.portfolio-terminal.pixel-card { background: #10121f; color: #cbd5e1; }
+.portfolio-terminal input { min-width: 0; }
+.portfolio-scene { opacity: .45; }
+@media (max-width: 767px) {
+   .scroll-hud { right: .75rem; bottom: .75rem; }
+   .scroll-hud > div > div { display: none; }
+   .scroll-hud button { min-width: 44px; min-height: 44px; display: grid; place-items: center; margin: 0; }
+   .scroll-hud > div { padding: 0; }
+}

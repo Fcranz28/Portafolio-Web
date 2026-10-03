@@ -373,7 +373,7 @@ onUnmounted(() => {
 <template>
   <div
     ref="container"
-    class="fixed inset-0 pointer-events-none z-0 w-full h-full overflow-hidden"
+    class="portfolio-scene fixed inset-0 pointer-events-none z-0 w-full h-full overflow-hidden"
     aria-hidden="true"
   />
 </template>

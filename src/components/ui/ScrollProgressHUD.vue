@@ -72,7 +72,7 @@ onUnmounted(() => {
     <!-- Floating Cyber HUD (Bottom Right) -->
     <div
       :class="[
-        'fixed bottom-6 right-6 z-40 transition-all duration-500 transform font-pixel select-none',
+        'scroll-hud fixed bottom-6 right-6 z-40 transition-all duration-500 transform font-pixel select-none',
         isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-95 pointer-events-none'
       ]"
     >

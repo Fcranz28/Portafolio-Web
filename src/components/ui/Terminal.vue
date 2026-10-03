@@ -130,7 +130,7 @@ const focusInput = () => {
 
 <template>
   <div
-    class="pixel-card w-full max-w-3xl mx-auto bg-black/90 text-green-400 font-pixel text-base sm:text-lg border-4 border-black dark:border-primary shadow-2xl overflow-hidden"
+    class="portfolio-terminal pixel-card w-full max-w-3xl mx-auto bg-black/90 text-green-400 font-pixel text-base sm:text-lg border-4 border-black dark:border-primary shadow-2xl overflow-hidden"
     @click="focusInput"
   >
     <!-- Terminal Header Bar -->
@@ -172,6 +172,7 @@ const focusInput = () => {
         <span class="text-white font-bold select-none">$</span>
         <input
           ref="terminalInput"
+          aria-label="Comando del terminal"
           v-model="inputCommand"
           type="text"
           class="flex-1 bg-transparent text-green-400 outline-none font-pixel text-base sm:text-lg caret-green-400"
